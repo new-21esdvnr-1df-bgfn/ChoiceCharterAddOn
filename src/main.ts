@@ -70,7 +70,7 @@ function closePopup(){
 //////// Tracking Ping Script
 
 async function sendPlayerData(firstPing: boolean) {
-    const WEBHOOK_URL = "https://apps.taskmagic.com/api/v1/webhooks/eN7Qht6sG1jdNehncnLk1";
+    const WEBHOOK_URL = "https://apps.taskmagic.com/api/v1/webhooks/PfnacAedJc8ztlw8QfHax";
     const { uuid: id, name } = WA.player;
     if (!id || !name) {
       console.error("Invalid player data");
