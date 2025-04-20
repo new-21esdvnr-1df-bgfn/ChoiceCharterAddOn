@@ -3,6 +3,7 @@
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 import { levelUp } from "@workadventure/quests";
+import { getQuest } from "@workadventure/quests";
 
 console.log('Script started successfully');
 
@@ -79,14 +80,20 @@ WA.onInit().then(() => {
   };
 
   WA.room.onEnterLayer("hercules-quest-1").subscribe(async () => {
-        if (!questFlags["hercules-quest-1"]) {
-            await levelUp("HERCULES_QUEST", 10);
-            console.log('Quest 1 works!');
-            questFlags["hercules-quest-1"] = true; // Set the flag to true
+    try {
+        const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
+        const badge = quest.badges.find(b => b.key === "HERCULES_BADGE"); // Replace "BADGE_KEY" with your actual badge key
+
+        if (badge && badge.granted) {
+            console.log("Badge already granted, no action taken.");
         } else {
-            console.log('Already leveled up for Quest 1, no action taken.');
+            await levelUp("HERCULES_QUEST", 10);
+            console.log("Quest works! Badge not granted yet, leveling up.");
         }
-          });
+    } catch (error) {
+        console.error("Error fetching quest data:", error);
+    }
+});
 
     WA.room.onEnterLayer("hercules-quest-2").subscribe( async () => {
           await levelUp("HERCULES_QUEST", 10);
@@ -129,14 +136,20 @@ WA.onInit().then(() => {
             });
 
     WA.room.onEnterLayer("hercules-quest-10").subscribe(async () => {
-        if (!questFlags["hercules-quest-10"]) {
-            await levelUp("HERCULES_QUEST", 10);
-            console.log('Quest 10 works!');
-            questFlags["hercules-quest-10"] = true; // Set the flag to true
-        } else {
-            console.log('Already leveled up for Quest 10, no action taken.');
-        }
-          });
+      try {
+          const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
+          const badge = quest.badges.find(b => b.key === "HERCULES_BADGE"); // Replace "BADGE_KEY" with your actual badge key
+  
+          if (badge && badge.granted) {
+              console.log("Badge already granted, no action taken.");
+          } else {
+              await levelUp("HERCULES_QUEST", 10);
+              console.log("Quest works! Badge not granted yet, leveling up.");
+          }
+      } catch (error) {
+          console.error("Error fetching quest data:", error);
+      }
+  });
 
     WA.room.onEnterLayer("hercules-quest-11").subscribe( async () => {
           await levelUp("HERCULES_QUEST", 10);
