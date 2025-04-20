@@ -181,7 +181,7 @@ WA.onInit().then(() => {
         console.log(`Granted badges: ${grantedBadgesCount}`);
 
         // Check if all 12 badges are granted
-        if (grantedBadgesCount === 12) {
+        if (grantedBadgesCount === 1) {
             await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE")
             console.log("All 12 badges granted! Leveling up.");
         } else {
