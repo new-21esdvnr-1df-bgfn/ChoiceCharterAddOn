@@ -8,6 +8,7 @@ import { getQuest } from "@workadventure/quests";
 console.log('Script started successfully');
 
 let currentPopup: any = undefined;
+let questBaseUrl = "https://admin.workadventu.re";
 
 // Waiting for the API to be ready
 WA.onInit().then(() => {
@@ -63,7 +64,7 @@ WA.onInit().then(() => {
     }).catch(e => console.error(e));
 
     // Victor Quest
-    
+
     /*
     const questFlags: { [key: string]: boolean } = {
       "hercules-quest-1": false,
@@ -137,7 +138,9 @@ WA.onInit().then(() => {
             console.log('Quest works!');
             });
 
-    WA.room.onEnterLayer("hercules-quest-10").subscribe(async () => {
+    // Verified version
+    
+            WA.room.onEnterLayer("hercules-quest-10").subscribe(async () => {
       try {
           const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
           const badge = quest.badges.find(b => b.key === "HERCULES_BADGE"); // Replace "BADGE_KEY" with your actual badge key
@@ -145,7 +148,8 @@ WA.onInit().then(() => {
           if (badge && badge.granted) {
               console.log("Badge already granted, no action taken.");
           } else {
-              await levelUp("HERCULES_QUEST", 10);
+              //await levelUp("HERCULES_QUEST", 10);
+              await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE")
               console.log("Quest works! Badge not granted yet, leveling up.");
           }
       } catch (error) {
@@ -153,7 +157,33 @@ WA.onInit().then(() => {
       }
   });
 
-    WA.room.onEnterLayer("hercules-quest-11").subscribe( async () => {
+  // Final
+  /*
+  WA.room.onEnterLayer("hercules-quest-10").subscribe(async () => {
+    try {
+        const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
+
+        // Count the number of granted badges
+        const grantedBadgesCount = quest.badges.filter(badge => badge.granted).length;
+
+        console.log(`Granted badges: ${grantedBadgesCount}`);
+
+        // Check if all 12 badges are granted
+        if (grantedBadgesCount === 12) {
+            await levelUp("HERCULES_QUEST", 10);
+            console.log("All 12 badges granted! Leveling up.");
+        } else {
+            console.log(`Not all badges granted yet. Current count: ${grantedBadgesCount}`);
+        }
+    } catch (error) {
+        console.error("Error fetching quest data:", error);
+    }
+});
+*/
+
+  // Delete this 
+  
+  WA.room.onEnterLayer("hercules-quest-11").subscribe( async () => {
           await levelUp("HERCULES_QUEST", 10);
           console.log('Quest works!');
           });
@@ -279,5 +309,35 @@ WA.onInit().then(() => {
     }, 300000);
 });
 //// End of Tracking Ping Script
+
+// Test
+
+async function displayCongratulations(quest: string, badge: string): Promise<void> {
+    const url = new URL(`/quests/${quest}/badge/${badge}/congratulations`, questBaseUrl);
+    url.search = new URLSearchParams({ token: getUserRoomToken() }).toString();
+    await WA.ui.website.open({
+        url: url.toString(),
+        position: {
+            vertical: "middle",
+            horizontal: "middle",
+        },
+        allowApi: true,
+        visible: true,
+        size: {
+            width: "100%",
+            height: "100%",
+        },
+    });
+  }
+
+  function getUserRoomToken(): string {
+    const userRoomToken = WA.player.userRoomToken;
+    if (userRoomToken === undefined) {
+        throw new Error(
+            "No userRoomToken found. The quests plugin can only work with WorkAdventure SAAS edition (at https://play.workadventu.re).",
+        );
+    }
+    return userRoomToken;
+}
 
 export {};
