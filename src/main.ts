@@ -63,7 +63,8 @@ WA.onInit().then(() => {
     }).catch(e => console.error(e));
 
     // Victor Quest
-
+    
+    /*
     const questFlags: { [key: string]: boolean } = {
       "hercules-quest-1": false,
       "hercules-quest-2": false,
@@ -78,6 +79,7 @@ WA.onInit().then(() => {
       "hercules-quest-11": false,
       "hercules-quest-12": false,
   };
+  */
 
   WA.room.onEnterLayer("hercules-quest-1").subscribe(async () => {
     try {
