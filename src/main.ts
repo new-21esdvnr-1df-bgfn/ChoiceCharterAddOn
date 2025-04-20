@@ -2,6 +2,8 @@
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
+import { levelUp } from "@workadventure/quests";
+
 console.log('Script started successfully');
 
 let currentPopup: any = undefined;
@@ -58,6 +60,132 @@ WA.onInit().then(() => {
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
     }).catch(e => console.error(e));
+
+    // Victor Quest
+
+    WA.room.onEnterLayer("hercules-quest-1").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });
+
+    WA.room.onEnterLayer("hercules-quest-2").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });  
+
+    WA.room.onEnterLayer("hercules-quest-3").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });          
+
+    WA.room.onEnterLayer("hercules-quest-4").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });       
+          
+    WA.room.onEnterLayer("hercules-quest-5").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });
+
+    WA.room.onEnterLayer("hercules-quest-6").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });
+
+    WA.room.onEnterLayer("hercules-quest-7").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });
+  
+    WA.room.onEnterLayer("hercules-quest-8").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });
+
+          WA.room.onEnterLayer("hercules-quest-9").subscribe( async () => {
+            await levelUp("HERCULES_QUEST", 10);
+            console.log('Quest works!');
+            });
+
+    WA.room.onEnterLayer("hercules-quest-10").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });
+
+    WA.room.onEnterLayer("hercules-quest-11").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });
+
+    WA.room.onEnterLayer("hercules-quest-1").subscribe( async () => {
+          await levelUp("HERCULES_QUEST", 10);
+          console.log('Quest works!');
+          });
+
+
+    // Victor Popup
+
+      WA.room.onEnterLayer('hercules-quest-1').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-1","12 Labors of Hercules\n1. The Nemean Lion",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-1').subscribe(closePopup)
+
+      WA.room.onEnterLayer('hercules-quest-2').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-2","12 Labors of Hercules\n2. The Lernaean Hydra",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-2').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-3').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-3","Labors of Hercules\n3. The Hind of Ceryneia",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-3').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-4').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-4","Labors of Hercules\n4. The Erymanthian Boar",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-4').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-5').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-5","Labors of Hercules\n5. The Augean Stables",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-5').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-6').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-6","Labors of Hercules\n6. The Stymphalian Birds",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-6').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-7').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-7","Labors of Hercules\n7. The Cretan Bull",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-7').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-8').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-8","Labors of Hercules\n8. The Horses of Diomedes",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-8').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-9').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-9","Labors of Hercules\n9. The Belt of Hippolyte",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-9').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-10').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-10","Labors of Hercules\n10. Geryon's Cattle",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-10').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-11').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-11","Labors of Hercules\n11. The Apples of the Hesperides",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-11').subscribe(closePopup)  
+
+      WA.room.onEnterLayer('hercules-quest-12').subscribe(() => {
+      currentPopup = WA.ui.openPopup("hercules-banner-12","Labors of Hercules\n12. Cerberus",[]);
+  })
+  WA.room.onLeaveLayer('hercules-quest-12').subscribe(closePopup)  
+
 
 }).catch(e => console.error(e));
 
