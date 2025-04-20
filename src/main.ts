@@ -3,12 +3,12 @@
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 import { levelUp } from "@workadventure/quests";
-import { getQuest } from "@workadventure/quests";
+//import { getQuest } from "@workadventure/quests";
 
 console.log('Script started successfully');
 
 let currentPopup: any = undefined;
-let questBaseUrl = "https://admin.workadventu.re";
+//let questBaseUrl = "https://admin.workadventu.re";
 
 // Waiting for the API to be ready
 WA.onInit().then(() => {
@@ -65,93 +65,68 @@ WA.onInit().then(() => {
 
     // Victor Quest
 
-    WA.room.onEnterLayer("hercules-quest-1").subscribe(async () => {
-      try {
-          const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
-          const badge = quest.badges.find(b => b.key === "HERCULES_BADGE_1"); // Replace "BADGE_KEY" with your actual badge key
-  
-          if (badge && badge.granted) {
-              console.log("Badge already granted, no action taken.");
-          } else {
-              await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE_1")
-              console.log("Quest works! Badge not granted yet, leveling up.");
-          }
-      } catch (error) {
-          console.error("Error fetching quest data:", error);
-      }
-        });
+    WA.room.onEnterLayer("hercules-quest-1").subscribe( async () => {
+      await levelUp("HERCULES_QUEST_1", 10);
+      console.log('Quest works!');
+      });  
 
     WA.room.onEnterLayer("hercules-quest-2").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
+          await levelUp("HERCULES_QUEST_2", 10);
           console.log('Quest works!');
           });  
 
     WA.room.onEnterLayer("hercules-quest-3").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
+          await levelUp("HERCULES_QUEST_3", 10);
           console.log('Quest works!');
           });          
 
     WA.room.onEnterLayer("hercules-quest-4").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
+          await levelUp("HERCULES_QUEST_4", 10);
           console.log('Quest works!');
           });       
           
     WA.room.onEnterLayer("hercules-quest-5").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
+          await levelUp("HERCULES_QUEST_5", 10);
           console.log('Quest works!');
           });
 
     WA.room.onEnterLayer("hercules-quest-6").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
+          await levelUp("HERCULES_QUEST_6", 10);
           console.log('Quest works!');
           });
 
     WA.room.onEnterLayer("hercules-quest-7").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
+          await levelUp("HERCULES_QUEST_7", 10);
           console.log('Quest works!');
           });
   
     WA.room.onEnterLayer("hercules-quest-8").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
+          await levelUp("HERCULES_QUEST_8", 10);
           console.log('Quest works!');
           });
 
-          WA.room.onEnterLayer("hercules-quest-9").subscribe( async () => {
-            await levelUp("HERCULES_QUEST", 10);
+    WA.room.onEnterLayer("hercules-quest-9").subscribe( async () => {
+            await levelUp("HERCULES_QUEST_9", 10);
             console.log('Quest works!');
             });
     
-    WA.room.onEnterLayer("hercules-quest-10").subscribe(async () => {
-      try {
-          const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
-          const badge = quest.badges.find(b => b.key === "HERCULES_BADGE_10"); // Replace "BADGE_KEY" with your actual badge key
-  
-          if (badge && badge.granted) {
-              console.log("Badge already granted, no action taken.");
-          } else {
-              await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE_10")
-              console.log("Quest works! Badge not granted yet, leveling up.");
-          }
-      } catch (error) {
-          console.error("Error fetching quest data:", error);
-      }
+    WA.room.onEnterLayer("hercules-quest-10").subscribe( async () => {
+          await levelUp("HERCULES_QUEST_10", 10);
+          console.log('Quest works!');
+          });
+
+    WA.room.onEnterLayer("hercules-quest-11").subscribe( async () => {
+      await levelUp("HERCULES_QUEST_11", 10);
+      console.log('Quest works!');
+      });
+
+    WA.room.onEnterLayer("hercules-quest-12").subscribe( async () => {
+        await levelUp("HERCULES_QUEST_12", 10);
+        console.log('Quest works!');
         });
 
-    WA.room.onEnterLayer("hercules-quest-11").subscribe(async () => {
-      try {
-          const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
-          const badge = quest.badges.find(b => b.key === "HERCULES_BADGE_11"); // Replace "BADGE_KEY" with your actual badge key
-  
-          if (badge && badge.granted) {
-              console.log("Badge already granted, no action taken.");
-          } else {
-              await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE_11")
-              console.log("Quest works! Badge not granted yet, leveling up.");
-          }
-      } catch (error) {
-          console.error("Error fetching quest data:", error);
-      }
-        });
+    // Victor testing badges
+    /* 
 
     WA.room.onEnterLayer("hercules-quest-12").subscribe(async () => {
       try {
@@ -191,6 +166,7 @@ WA.onInit().then(() => {
         console.error("Error fetching quest data:", error);
     }
     });
+    */
 
     // Victor Popup
 
@@ -308,8 +284,8 @@ WA.onInit().then(() => {
 });
 //// End of Tracking Ping Script
 
-// Test
-
+// Test functions
+/*
 async function displayCongratulations(quest: string, badge: string): Promise<void> {
     const url = new URL(`/quests/${quest}/badge/${badge}/congratulations`, questBaseUrl);
     url.search = new URLSearchParams({ token: getUserRoomToken() }).toString();
@@ -337,5 +313,6 @@ async function displayCongratulations(quest: string, badge: string): Promise<voi
     }
     return userRoomToken;
 }
+*/
 
 export {};
