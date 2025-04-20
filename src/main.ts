@@ -63,9 +63,29 @@ WA.onInit().then(() => {
 
     // Victor Quest
 
-    WA.room.onEnterLayer("hercules-quest-1").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
-          console.log('Quest works!');
+    const questFlags: { [key: string]: boolean } = {
+      "hercules-quest-1": false,
+      "hercules-quest-2": false,
+      "hercules-quest-3": false,
+      "hercules-quest-4": false,
+      "hercules-quest-5": false,
+      "hercules-quest-6": false,
+      "hercules-quest-7": false,
+      "hercules-quest-8": false,
+      "hercules-quest-9": false,
+      "hercules-quest-10": false,
+      "hercules-quest-11": false,
+      "hercules-quest-12": false,
+  };
+
+  WA.room.onEnterLayer("hercules-quest-1").subscribe(async () => {
+        if (!questFlags["hercules-quest-1"]) {
+            await levelUp("HERCULES_QUEST", 10);
+            console.log('Quest 1 works!');
+            questFlags["hercules-quest-1"] = true; // Set the flag to true
+        } else {
+            console.log('Already leveled up for Quest 1, no action taken.');
+        }
           });
 
     WA.room.onEnterLayer("hercules-quest-2").subscribe( async () => {
@@ -108,9 +128,14 @@ WA.onInit().then(() => {
             console.log('Quest works!');
             });
 
-    WA.room.onEnterLayer("hercules-quest-10").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
-          console.log('Quest works!');
+    WA.room.onEnterLayer("hercules-quest-10").subscribe(async () => {
+        if (!questFlags["hercules-quest-10"]) {
+            await levelUp("HERCULES_QUEST", 10);
+            console.log('Quest 10 works!');
+            questFlags["hercules-quest-10"] = true; // Set the flag to true
+        } else {
+            console.log('Already leveled up for Quest 10, no action taken.');
+        }
           });
 
     WA.room.onEnterLayer("hercules-quest-11").subscribe( async () => {
