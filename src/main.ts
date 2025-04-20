@@ -65,38 +65,21 @@ WA.onInit().then(() => {
 
     // Victor Quest
 
-    /*
-    const questFlags: { [key: string]: boolean } = {
-      "hercules-quest-1": false,
-      "hercules-quest-2": false,
-      "hercules-quest-3": false,
-      "hercules-quest-4": false,
-      "hercules-quest-5": false,
-      "hercules-quest-6": false,
-      "hercules-quest-7": false,
-      "hercules-quest-8": false,
-      "hercules-quest-9": false,
-      "hercules-quest-10": false,
-      "hercules-quest-11": false,
-      "hercules-quest-12": false,
-  };
-  */
-
-  WA.room.onEnterLayer("hercules-quest-1").subscribe(async () => {
-    try {
-        const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
-        const badge = quest.badges.find(b => b.key === "HERCULES_BADGE"); // Replace "BADGE_KEY" with your actual badge key
-
-        if (badge && badge.granted) {
-            console.log("Badge already granted, no action taken.");
-        } else {
-            await levelUp("HERCULES_QUEST", 10);
-            console.log("Quest works! Badge not granted yet, leveling up.");
-        }
-    } catch (error) {
-        console.error("Error fetching quest data:", error);
-    }
-});
+    WA.room.onEnterLayer("hercules-quest-1").subscribe(async () => {
+      try {
+          const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
+          const badge = quest.badges.find(b => b.key === "HERCULES_BADGE_1"); // Replace "BADGE_KEY" with your actual badge key
+  
+          if (badge && badge.granted) {
+              console.log("Badge already granted, no action taken.");
+          } else {
+              await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE_1")
+              console.log("Quest works! Badge not granted yet, leveling up.");
+          }
+      } catch (error) {
+          console.error("Error fetching quest data:", error);
+      }
+        });
 
     WA.room.onEnterLayer("hercules-quest-2").subscribe( async () => {
           await levelUp("HERCULES_QUEST", 10);
@@ -137,28 +120,57 @@ WA.onInit().then(() => {
             await levelUp("HERCULES_QUEST", 10);
             console.log('Quest works!');
             });
-
-    // Verified version
     
-            WA.room.onEnterLayer("hercules-quest-10").subscribe(async () => {
+    WA.room.onEnterLayer("hercules-quest-10").subscribe(async () => {
       try {
           const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
-          const badge = quest.badges.find(b => b.key === "HERCULES_BADGE"); // Replace "BADGE_KEY" with your actual badge key
+          const badge = quest.badges.find(b => b.key === "HERCULES_BADGE_10"); // Replace "BADGE_KEY" with your actual badge key
   
           if (badge && badge.granted) {
               console.log("Badge already granted, no action taken.");
           } else {
-              //await levelUp("HERCULES_QUEST", 10);
-              await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE")
+              await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE_10")
               console.log("Quest works! Badge not granted yet, leveling up.");
           }
       } catch (error) {
           console.error("Error fetching quest data:", error);
       }
-  });
+        });
 
-  // Final
-  /*
+    WA.room.onEnterLayer("hercules-quest-11").subscribe(async () => {
+      try {
+          const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
+          const badge = quest.badges.find(b => b.key === "HERCULES_BADGE_11"); // Replace "BADGE_KEY" with your actual badge key
+  
+          if (badge && badge.granted) {
+              console.log("Badge already granted, no action taken.");
+          } else {
+              await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE_11")
+              console.log("Quest works! Badge not granted yet, leveling up.");
+          }
+      } catch (error) {
+          console.error("Error fetching quest data:", error);
+      }
+        });
+
+    WA.room.onEnterLayer("hercules-quest-12").subscribe(async () => {
+      try {
+          const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
+          const badge = quest.badges.find(b => b.key === "HERCULES_BADGE_12"); // Replace "BADGE_KEY" with your actual badge key
+  
+          if (badge && badge.granted) {
+              console.log("Badge already granted, no action taken.");
+          } else {
+              await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE_12")
+              console.log("Quest works! Badge not granted yet, leveling up.");
+          }
+      } catch (error) {
+          console.error("Error fetching quest data:", error);
+      }
+        });
+
+  // Final badge
+  
   WA.room.onEnterLayer("hercules-quest-10").subscribe(async () => {
     try {
         const quest = await getQuest("HERCULES_QUEST"); // Replace "HERCULES_QUEST" with your actual quest key
@@ -170,7 +182,7 @@ WA.onInit().then(() => {
 
         // Check if all 12 badges are granted
         if (grantedBadgesCount === 12) {
-            await levelUp("HERCULES_QUEST", 10);
+            await displayCongratulations("HERCULES_QUEST", "HERCULES_BADGE")
             console.log("All 12 badges granted! Leveling up.");
         } else {
             console.log(`Not all badges granted yet. Current count: ${grantedBadgesCount}`);
@@ -178,21 +190,7 @@ WA.onInit().then(() => {
     } catch (error) {
         console.error("Error fetching quest data:", error);
     }
-});
-*/
-
-  // Delete this 
-  
-  WA.room.onEnterLayer("hercules-quest-11").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
-          console.log('Quest works!');
-          });
-
-    WA.room.onEnterLayer("hercules-quest-1").subscribe( async () => {
-          await levelUp("HERCULES_QUEST", 10);
-          console.log('Quest works!');
-          });
-
+    });
 
     // Victor Popup
 
