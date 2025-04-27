@@ -63,7 +63,7 @@ WA.onInit().then(() => {
         console.log('Scripting API Extra ready');
     }).catch(e => console.error(e));
 
-    // Victor Quest
+    // Victor Quest Hercules
 
     WA.room.onEnterLayer("hercules-quest-1").subscribe( async () => {
       await levelUp("HERCULES_QUEST_1", 10);
@@ -125,6 +125,13 @@ WA.onInit().then(() => {
         console.log('Quest works!');
         });
 
+    // Ira Quest Labyrinth
+
+    WA.room.onEnterLayer("minotaur-quest").subscribe( async () => {
+      await levelUp("MINOTAUR_QUEST", 10);
+      console.log('Quest works!');
+      });
+    
     // Victor testing badges
     /* 
 
@@ -229,6 +236,11 @@ WA.onInit().then(() => {
       currentPopup = WA.ui.openPopup("hercules-banner-12","Labors of Hercules\n12. Cerberus",[]);
   })
   WA.room.onLeaveLayer('hercules-quest-12').subscribe(closePopup)  
+
+  WA.room.onEnterLayer('minotaur-message-zone').subscribe(() => {
+    currentPopup = WA.ui.openPopup("minotaur-pop-up","You entered the Labyrinth of the Minotaur! Find the fearless Minotaur at the heart of the maze to earn your badge of bravery!",[]);
+})
+WA.room.onLeaveLayer('minotaur-message-zone').subscribe(closePopup)  
 
 
 }).catch(e => console.error(e));
