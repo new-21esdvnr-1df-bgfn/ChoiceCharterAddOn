@@ -238,7 +238,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -333,7 +333,7 @@
         {
          "name":"mapCopyright",
          "type":"string",
-         "value":"Escape Room is the sole property of 100 Roads Design LLC. All rights are reserved by 100 Roads Design LLC. All contents of the map may not be reproduced, distributed (for sale or otherwise), or create derivative works of the copyrighted work without the express written permission of 100 Roads Design LLC."
+         "value":"Cabin is the sole property of DigiPie Design. All rights are reserved by DigiPie Design. All contents of the map may not be reproduced, distributed (for sale or otherwise), or create derivative works of the copyrighted work without the express written permission of DigiPie Design."
         }, 
         {
          "name":"mapDescription",
@@ -343,12 +343,12 @@
         {
          "name":"mapImage",
          "type":"string",
-         "value":"escape-room.png"
+         "value":"cabin.png"
         }, 
         {
          "name":"mapName",
          "type":"string",
-         "value":"Choice Charter Escape Room"
+         "value":"Cabin"
         }, 
         {
          "name":"script",
@@ -358,7 +358,7 @@
         {
          "name":"tilesetCopyright",
          "type":"string",
-         "value":"This map is the sole property of 100 Roads Design LLC. All rights are reserved by 100 Roads Design LLC. All contents of the map may not be reproduced, distributed (for sale or otherwise), or create derivative works of the copyrighted work without the express written permission of 100 Roads Design LLC."
+         "value":"This map is the sole property of DigiPie Design. All rights are reserved by DigiPie Design. All contents of the map may not be reproduced, distributed (for sale or otherwise), or create derivative works of the copyrighted work without the express written permission of DigiPie Design."
         }],
  "renderorder":"right-down",
  "tiledversion":"1.11.0",
