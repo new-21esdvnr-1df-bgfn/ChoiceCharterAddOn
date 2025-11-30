@@ -275,16 +275,15 @@ WA.room.onLeaveLayer('minotaur-message-zone').subscribe(closePopup)
 
 // Gift quest
 
-    WA.state.onVariableChange("giftDoor").subscribe((newValue: unknown) => {
-      if (newValue === true) {
-        console.log("Gift Quest: door 'giftDoor' opened!");
-        // Prevent or override default behavior if needed — e.g. immediately close it:
-        // WA.state.giftDoor = false;
-      }
-      else {
+WA.state.onVariableChange("giftDoor").subscribe(async (newValue: unknown) => {
+    if (newValue === true) {
+        await levelUp("GIFT-QUEST", 10);
+        console.log('Gift Quest: Unlocked!');
+    }
+    else {
         console.log("Gift Quest: Wrong pin");
-      }
-    });
+    }
+});
 
 
 }).catch(e => console.error(e));
