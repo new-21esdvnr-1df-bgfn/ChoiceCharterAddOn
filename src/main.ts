@@ -45,6 +45,37 @@ WA.onInit().then(() => {
       WA.room.showLayer("sign");
     });
 
+         WA.room.onEnterLayer("rooms_floor1").subscribe(() => {
+      WA.room.hideLayer("facade-bg1");
+      WA.room.hideLayer("facade1");
+    });
+    
+  WA.room.onLeaveLayer("rooms_floor1").subscribe(() => {
+      WA.room.showLayer("facade-bg1");
+      WA.room.showLayer("facade1");
+    });
+
+  WA.room.onEnterLayer("rooms_floor2").subscribe(() => {
+      WA.room.hideLayer("facade-bg2");
+      WA.room.hideLayer("facade2");
+    });
+    
+  WA.room.onLeaveLayer("rooms_floor2").subscribe(() => {
+      WA.room.showLayer("facade-bg2");
+      WA.room.showLayer("facade2");
+    });
+
+   WA.room.onEnterLayer("rooms_floor3").subscribe(() => {
+      WA.room.hideLayer("facade-bg3");
+      WA.room.hideLayer("facade3");
+    });
+    
+  WA.room.onLeaveLayer("rooms_floor3").subscribe(() => {
+      WA.room.showLayer("facade-bg3");
+      WA.room.showLayer("facade3");
+    });
+   
+
     WA.room.onEnterLayer("rooms_floor").subscribe(() => {
       WA.room.hideLayer("facade-furniture-fg");
       WA.room.hideLayer("facade");
