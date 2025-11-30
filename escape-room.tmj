@@ -668,8 +668,8 @@
                  "type":"variable",
                  "visible":true,
                  "width":0,
-                 "x":584.643583925042,
-                 "y":552.767732962448
+                 "x":640,
+                 "y":576
                 }, 
                 {
                  "height":65.4314449553878,
@@ -849,7 +849,7 @@
          "y":0
         }],
  "nextlayerid":32,
- "nextobjectid":15,
+ "nextobjectid":20,
  "orientation":"orthogonal",
  "properties":[
         {
