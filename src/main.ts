@@ -269,7 +269,7 @@ WA.onInit().then(() => {
   WA.room.onLeaveLayer('hercules-quest-12').subscribe(closePopup)  
 
         WA.room.onEnterLayer('winter-quest-popup-zone').subscribe(() => {
-      currentPopup = WA.ui.openPopup("winter-quest-popup","From distant Japan, Hoteiosho begins the snowy trail, Across icy Russia, Ded Moroz rides on a frosty gale; Through moonlit Italy, La Befana drifts with shimmering cheer, And Santa closes out the tale as Christmas Eve draws near.",[]);
+      currentPopup = WA.ui.openPopup("winter-quest-popup","From snowy Japan, Hoteiosho starts the wintry quest, Then Russia’s Ded Moroz sends cold winds from the crest; Italy’s La Befana swoops in with gifts that softly gleam, While Santa from the North Pole ends the bright, festive dream.",[]);
   })
   WA.room.onLeaveLayer('winter-quest-popup-zone').subscribe(closePopup)  
 
