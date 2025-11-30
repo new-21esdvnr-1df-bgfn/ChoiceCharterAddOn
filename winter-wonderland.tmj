@@ -1013,7 +1013,7 @@
                  "point":true,
                  "properties":[
                         {
-                         "name":"closelayer",
+                         "name":"closeLayer",
                          "type":"string",
                          "value":"closed_door"
                         }, 
@@ -1028,7 +1028,7 @@
                          "value":true
                         }, 
                         {
-                         "name":"openlayer",
+                         "name":"openLayer",
                          "type":"string",
                          "value":"opened_door_fake"
                         }, 
