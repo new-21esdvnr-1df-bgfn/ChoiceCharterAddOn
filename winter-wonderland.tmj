@@ -1015,7 +1015,7 @@
                         {
                          "name":"closeLayer",
                          "type":"string",
-                         "value":"closed_door"
+                         "value":"opened_door_fake"
                         }, 
                         {
                          "name":"default",
