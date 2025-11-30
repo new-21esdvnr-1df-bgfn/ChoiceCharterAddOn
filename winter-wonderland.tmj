@@ -1226,15 +1226,15 @@
                  "y":1760
                 }, 
                 {
-                 "height":160,
+                 "height":128,
                  "id":80,
                  "name":"winter-quest-popup",
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":320,
-                 "x":2079.21092085536,
-                 "y":1451.04710802493
+                 "width":288,
+                 "x":2080,
+                 "y":1472
                 }],
          "opacity":1,
          "type":"objectgroup",
