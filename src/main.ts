@@ -72,7 +72,7 @@ WA.onInit().then(() => {
     
   WA.room.onLeaveLayer("rooms_floor3").subscribe(() => {
       WA.room.showLayer("facade-bg3");
-      WA.room.showLayer("facade3");
+      WA.room.showLayer("facade3w");
     });
    
 
@@ -272,6 +272,19 @@ WA.onInit().then(() => {
     currentPopup = WA.ui.openPopup("minotaur-pop-up","You entered the Labyrinth of the Minotaur! Find the fearless Minotaur at the heart of the maze to earn your badge of bravery!",[]);
 })
 WA.room.onLeaveLayer('minotaur-message-zone').subscribe(closePopup)  
+
+// Gift quest
+
+    WA.state.onVariableChange("giftDoor").subscribe((newValue: unknown) => {
+      if (newValue === true) {
+        console.log("Gift Quest: door 'giftDoor' opened!");
+        // Prevent or override default behavior if needed — e.g. immediately close it:
+        // WA.state.giftDoor = false;
+      }
+      else {
+        console.log("Gift Quest: Wrong pin");
+      }
+    });
 
 
 }).catch(e => console.error(e));
