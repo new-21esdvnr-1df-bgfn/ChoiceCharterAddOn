@@ -72,7 +72,7 @@ WA.onInit().then(() => {
     
   WA.room.onLeaveLayer("rooms_floor3").subscribe(() => {
       WA.room.showLayer("facade-bg3");
-      WA.room.showLayer("facade3w");
+      WA.room.showLayer("facade3");
     });
    
 
