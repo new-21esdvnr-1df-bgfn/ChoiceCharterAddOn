@@ -3,6 +3,7 @@
 import { levelUp } from "@workadventure/quests";
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+import { trackPresence } from "./tracking";
 
 console.log('Script started successfully');
 
@@ -53,5 +54,9 @@ function closePopup(){
         currentPopup = undefined;
     }
 }
+
+WA.onInit().then(() => {
+    trackPresence();
+}).catch(e => console.error(e));
 
 export {};
