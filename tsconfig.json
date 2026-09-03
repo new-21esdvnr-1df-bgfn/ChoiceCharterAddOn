@@ -9,7 +9,7 @@
       "DOM"
     ],
     "allowJs": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -27,7 +27,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@workadventure/quests": ["./node_modules/@workadventure/quests/dist/index.d.ts"]
+    }
   },
   "include": [
     "src"
