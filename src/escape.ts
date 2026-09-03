@@ -4,8 +4,7 @@ import { levelUp } from "@workadventure/quests";
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 import { trackPresence } from "./tracking";
-
-console.log('Script started successfully');
+import { enforceOpeningHours } from "./closing";
 
 let currentPopup: any = undefined;
 
@@ -13,6 +12,10 @@ let currentPopup: any = undefined;
 WA.onInit().then( async () => {
     console.log('Scripting API ready');
     console.log('Player tags: ',WA.player.tags)
+
+    // Closed outside opening hours (see closing.ts); stop here if redirected.
+    if (!enforceOpeningHours()) return;
+
     // quest
     //const quest = await getQuest("1101_ESCAPE_ROOM_FIBONACCI_100_ROADS_OFFICE");
     console.log("TEST JULIA")

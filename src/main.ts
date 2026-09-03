@@ -4,9 +4,8 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 import { levelUp } from "@workadventure/quests";
 import { trackPresence } from "./tracking";
+import { enforceOpeningHours } from "./closing";
 //import { getQuest } from "@workadventure/quests";
-
-console.log('Script started successfully');
 
 let currentPopup: any = undefined;
 //let questBaseUrl = "https://admin.workadventu.re";
@@ -15,6 +14,9 @@ let currentPopup: any = undefined;
 WA.onInit().then(() => {
     console.log('Scripting API ready');
     console.log('Player tags: ',WA.player.tags)
+
+    // Closed outside opening hours (see closing.ts); stop here if redirected.
+    if (!enforceOpeningHours()) return;
 
     WA.room.onEnterLayer('clockZone').subscribe(() => {
         const today = new Date();
